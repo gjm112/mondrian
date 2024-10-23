@@ -1,3 +1,5 @@
+seed <- 17
+png(paste0("/Users/gregorymatthews/Dropbox/mondrian/mondrian_",seed,".png"), res = 300, h = 12, w = 12, units = "in")
 lwd <- 1
 par(mar = c(0,0,0,0))
 plot(0,0,col = rgb(0,0,0,0), frame.plot= FALSE, yaxt='n', xaxt='n',ylab = "", xlab = "", ylim = c(0,10), xlim = c(0,10), asp = 1)
@@ -36,5 +38,4 @@ color <- sample(c("red","blue","yellow"),1)
 polygon(temp[c(1,2,2,1)],temp[c(3,3,4,4)], col = color, lwd=lwd, lend = 1)
 }
 
-
-
+dev.off()
