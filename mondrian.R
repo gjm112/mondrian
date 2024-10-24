@@ -6,7 +6,9 @@ lwd <- 1
 #Number of boxes
 nbox <- 200
 #Number of colored boxes
-ncolor <- 100
+ncolor <- 200
+#Color vector
+colvec <- c("seashell4","hotpink4","brown3","#00F0F0")
 
 #Uncomment to export 
 #png(paste0("./mondrian_",seed,".png"), res = 300, h = 12, w = 12, units = "in")
@@ -46,7 +48,7 @@ for (q in 1:ncolor){
 i <- sample(1:length(rect),1)
 temp <- rect[[i]]
 rect[[i]] <- NULL
-color <- sample(c("red","blue","yellow"),1)
+color <- sample(colvec,1)
 polygon(temp[c(1,2,2,1)],temp[c(3,3,4,4)], col = color, lwd=lwd, lend = 1)
 }
 #Uncomment to export
