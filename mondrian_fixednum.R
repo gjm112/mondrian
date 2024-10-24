@@ -32,7 +32,7 @@ for (i in 2:4){
   }
   
   #Now color squares
-  num <- list(red = 10,blue = 2,yellow = 2)
+  num <- list(red = 10,blue = 10,yellow = 4)
   for (color in c("red","blue","yellow")){
   for (q in 1:num[[color]]){
     i <- sample(1:length(rect),1)
