@@ -1,8 +1,15 @@
-for (i in 2:4){
-  seed <- i
+  #Chage seed to get different random image
+  seed <- 12345
   set.seed(seed)
-  png(paste0("/Users/gregorymatthews/Dropbox/mondrian/mondrian_",seed,".png"), res = 300, h = 12, w = 12, units = "in")
-  lwd <- 1
+  #png(paste0("./mondrian_",seed,".png"), res = 300, h = 12, w = 12, units = "in")
+  #linewidth 
+  lwd <- 3
+  #Number of boxes
+  nbox <- 500
+  #Number of boxes of each color
+  #Sum must be less than or equal to nbox
+  num <- list(red = 100,blue = 10,yellow = 4)
+  
   par(mar = c(0,0,0,0))
   plot(0,0,col = rgb(0,0,0,0), frame.plot= FALSE, yaxt='n', xaxt='n',ylab = "", xlab = "", ylim = c(0,10), xlim = c(0,10), asp = 1)
   points(c(0,10,10,0,0,0),c(0,0,10,10,0,10),type = "l", lwd = lwd,lend = 1)
@@ -11,7 +18,7 @@ for (i in 2:4){
   rect[[1]] <- c(0,10,0,10)
   
   #Randomly sample a rectangle
-  for (q in 1:42){
+  for (q in 1:nbox){
     i <- sample(1:length(rect),1)
     temp <- rect[[i]]
     
@@ -32,8 +39,7 @@ for (i in 2:4){
   }
   
   #Now color squares
-  num <- list(red = 10,blue = 10,yellow = 4)
-  for (color in c("red","blue","yellow")){
+  for (color in names(num)){
   for (q in 1:num[[color]]){
     i <- sample(1:length(rect),1)
     temp <- rect[[i]]
@@ -42,5 +48,4 @@ for (i in 2:4){
     }
   }
   
-  dev.off()
-}
+  #dev.off()
